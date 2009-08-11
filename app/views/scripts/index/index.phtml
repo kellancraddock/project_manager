@@ -1,2 +1,87 @@
-<h1>Hello, World!</h1>
-<p>Generic Zend Framework Application V-0.1</p>
+<h1>This is the main page</h1>
+<form action="/project/addone" method="post" name="userGeneralSubmit" id="userGeneralSubmit" class="userGeneralSubmit">
+    <fieldset>
+        <label>Project Title:</label>
+        <input type="text" name="projectTitle" id="projectTitle" class="projectTitle" />
+        
+        <label>Project URL:</label>
+        <input type="text" name="projectUrl" id="projectUrl" class="projectUrl" />
+    </fieldset>
+    
+    <fieldset>
+        <label>Project Authors:</label>
+        <label>First Name</label>
+        <input type="text" name="authorFirstName" id="authorFirstName" class="authorFirstName" />
+        <label>Last Name</label>
+        <input type="text" name="authorLastName" id="authorLastName" class="authorLastName" />
+    </fieldset>
+    
+    <fieldset>
+        <label>Class</label>
+        <input type="text" name="class" id="class" class="class" />
+        
+        <label>Date Completed:</label>
+        <input type="text" name="dateComplete" id="dateComplete" class="dateComplete" />
+        
+    </fieldset>
+    
+    <label>Tools used:</label>
+    <fieldset>
+        <label>Photoshop</label>      
+        <input type="checkbox" name="photoshop" id="photoshop" class="photoshop" value="photoshop" />
+        
+        <label>Illustrator</label>
+        <input type="checkbox" name="illustrator" id="illustrator" class="illustrator" value="illustrator" />
+        
+        <label>Flash</label>
+        <input type="checkbox" name="flash" id="flash" class="flash" value="flash" />
+        
+        <label>Flex</label>
+        <input type="checkbox" name="flex" id="flex" class="flex" value="flex" />
+        
+        <label>Air</label>
+        <input type="checkbox" name="air" id="air" class="air" value="air" />
+   </fieldset>
+   
+   
+   <label>Languages:</label>
+   <fieldset>
+        <label>HTML</label>      
+        <input type="checkbox" name="html" id="html" class="html" value="html" />
+        
+        <label>CSS</label>
+        <input type="checkbox" name="css" id="css" class="css" value="css" />
+        
+        <label>Javascript</label>
+        <input type="checkbox" name="javascript" id="javascript" class="javascript" value="javascript" />
+        
+        <label>jQuery</label>
+        <input type="checkbox" name="jquery" id="jquery" class="jquery" value="jquery" />
+        
+        <label>PHP</label>
+        <input type="checkbox" name="php" id="php" class="php" value="php" />
+        
+        <label>ROR</label>
+        <input type="checkbox" name="ror" id="ror" class="ror" value="ror" />
+        
+        <label>Actionscript 2.0</label>
+        <input type="checkbox" name="as2" id="as2" class="as2" value="as2" />
+        
+        <label>Actionscript 3.0</label>
+        <input type="checkbox" name="as3" id="as3" class="as3" value="as3" />
+        
+        <label>mySQL</label>
+        <input type="checkbox" name="sql" id="sql" class="sql" value="sql" />
+   </fieldset>
+   
+   <fieldset>
+        <label>Assignment Specifications:</label>
+        <input type="text" name="assigmentSpecs" id="assigmentSpecs" class="assigmentSpecs" />
+        
+        <label>Project Approach:</label>
+        <input type="text" name="projectApproach" id="projectApproach" class="projectApproach" />
+        
+        <input type="submit" name="submitGeneralForm" value="submit" id="submitGeneralForm" class="submitGeneralForm" />
+   
+     </fieldset>
+</form>
