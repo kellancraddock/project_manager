@@ -1,26 +1,29 @@
-<h1>You added: <?= $this->project_title ?></h1>
-<p><?= $this->project_title ?></p>
-<p><?= $this->url ?></p>
-<p><?= $this->author_first ?></p>
-<p><?= $this->author_last ?></p>
-<p><?= $this->class_name ?></p>
-<p><?= $this->complete_date ?></p>
+<form action="/image/addimage/id/<?= $this->project_id ?>" method="post" name="userGeneralSubmit" id="userGeneralSubmit" class="userGeneralSubmit">
+    <fieldset>
+        <legend>Thumbnail Images:</legend>
+        
+        <label>Thumbnail #1 (262px by 295px)</label>
+        <input type="hidden" name="MAX_FILE_SIZE" value="400" />
+        <input type="file" name="thumbnailOne" class="thumbnailOne" id="thumbnailOne" />
+        
+        <label>Thumbnail #2 (300px by 118px)</label>
+        <input type="hidden" name="MAX_FILE_SIZE" value="400" />
+        <input type="file" name="thumbnailTwo" class="thumbnailTwo" id="thumbnailTwo" />
+    </fieldset>
+    
+    
+    <fieldset>
+        <legend>Fullscreen Images: (1280px by 800px)</legend>
+        
+        <label>FullScreen #1</label>
+        <input type="hidden" name="MAX_FILE_SIZE" value="400" />
+        <input type="file" name="thumbnailOne" class="thumbnailOne" id="thumbnailOne" />
+        
+        <label>FullScreen #2</label>
+        <input type="hidden" name="MAX_FILE_SIZE" value="400" />
+        <input type="file" name="thumbnailTwo" class="thumbnailTwo" id="thumbnailTwo" />
+    </fieldset>
 
-<p><?= $this->photoshop ?></p>
-<p><?= $this->illustrator ?></p>
-<p><?= $this->flash ?></p>
-<p><?= $this->flex ?></p>
-<p><?= $this->air ?></p>
+    <input type="submit" name="submitImageForm" value="submit" id="submitImageForm" class="submitImageForm" />
+</form>
 
-<p><?= $this->html ?></p>
-<p><?= $this->css ?></p>
-<p><?= $this->javascript ?></p>
-<p><?= $this->jquery ?></p>
-<p><?= $this->php ?></p>
-
-<p><?= $this->ror ?></p>
-<p><?= $this->as2 ?></p>
-<p><?= $this->as3 ?></p>
-<p><?= $this->sql ?></p>
-<p><?= $this->assign ?></p>
-<p><?= $this->project ?></p>
