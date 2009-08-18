@@ -37,7 +37,7 @@ $config = new Zend_Config(
 			'adapter' => 'Mysqli',
 			'params' => array(
 				'host' => 'localhost',
-				'dbname' => 'dbname',
+				'dbname' => 'project_manager',
 				'username' => 'root',
 				'password' => 'root',
 			)
@@ -53,13 +53,13 @@ $db = Zend_Db::factory( $config->database );
 Zend_DB_Table_Abstract::setDefaultAdapter($db);
 
 //Register Helpers with Brokers
-//Zend_Controller_Action_HelperBroker::addPath('../application/helpers/actions', 'Helper_');
+Zend_Controller_Action_HelperBroker::addPath('../app/helpers/actions', 'Helper_');
 
 //Set View Helpers
-//$view = new Zend_View();
-//$view->addHelperPath('../application/helpers/views/', 'View_Helper_');			
-//$renderer = Zend_Controller_Action_HelperBroker::getStaticHelper('viewRenderer');
-//$renderer->setView($view);
+$view = new Zend_View();
+$view->addHelperPath('../app/helpers/views/', 'View_Helper_');			
+$renderer = Zend_Controller_Action_HelperBroker::getStaticHelper('viewRenderer');
+$renderer->setView($view);
 
 //Get Front Controller
 $front = Zend_Controller_Front::getInstance();

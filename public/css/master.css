@@ -33,3 +33,115 @@ body {
 	width: 900px;
 	margin: 0 auto;
 }
+
+@charset "utf-8";
+/* CSS Document */
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Helvetica, Verdana, sans-serif;
+    font-size: 13px; 
+    color: #333;
+}
+
+#container {
+    width : 400px;
+    height: 100%;
+    margin: 0px auto;
+    padding: 30px;
+    background: #CED7DB;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    font-size: 14px;
+        
+}
+
+#userGeneralSubmit {
+    width: 330px;
+    margin: 0px 0px 0px 0px;
+    padding: 20px 0px 0px 0px;    
+    
+}
+
+h1 {
+    margin: 0px 0px 0px 0px;
+    padding: 20px 0px 0px 0px;    
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+fieldset {
+    margin: 20px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    display: block;
+    border: none;    
+}
+
+input[type="text"], input[type="file"], textarea {
+    width: 300px;
+    margin-bottom: 10px;
+    padding: 4px;
+    display: block;
+    background-color: #EEF7F7;
+    font-size: 13px;   
+    border: solid 1px #85b1de;
+    
+}
+
+input[type="file"] {
+    margin: 0px 0px 20px 0px;
+    padding: 0px 0px 0px 0px;    
+}
+
+pre, textarea { /* General Style for CodeBoxes */
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+    clear: both;
+}
+
+#projectApproach, #assigmentSpecs {
+    height: 120px;
+}
+
+legend {
+    margin: 0px 0px 15px 0px;
+    padding: 0px 0px 0px 0px;    
+    font-family: Helvetica, Verdana, sans-serif;
+    font-size: 15px; 
+    font-weight: bold;
+    text-transform: uppercase;    
+}
+
+label {
+    margin: 0px 15px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    color: #003366;
+    
+}
+
+.check {
+    margin: 0px 0px 10px 0px;
+    padding: 0px 0px 0px 0px;    
+}
+
+input[type="submit"] {
+    margin: 0px 15px 0px 0px;
+    padding: 5px;
+    border: solid 1px #85b1de;
+    background: #EEF7F7;
+    color: #003366; 
+    cursor: pointer;
+    
+}
+
+.project {
+	border: 1px solid #fff;
+	padding: 10px;
+	margin-bottom: 10px;
+}
