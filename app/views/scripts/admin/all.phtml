@@ -1,0 +1,12 @@
+<h1>All the Projects</h1>
+<?php 
+	foreach($this->projects as $project) {
+		echo '<div class="project">';
+		echo '<p>Title: ' . $project['title'] . '</p>';
+		echo '<p>URL: ' . $project['url'] . '</p>';
+		echo '<p>Date Completed: ' . $project['date_completed'] . '</p>';
+		echo '<p>Specs: ' . $project['specs'] . '</p>';
+		echo '<p>Approach: ' . $project['approach'] . '</p>';
+		echo '</div>';	
+	}
+?>
