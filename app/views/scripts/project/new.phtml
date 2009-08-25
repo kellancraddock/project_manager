@@ -1,0 +1,129 @@
+<form action="/image/addimage/id/<?= $this->project_id ?>" method="post" name="userGeneralSubmit" id="userGeneralSubmit" class="userGeneralSubmit">
+    <fieldset>
+        <legend>Thumbnail Images:</legend>
+        
+        <label>Thumbnail #1 (262px by 295px)</label>
+        <input type="hidden" name="MAX_FILE_SIZE" value="400" />
+        <input type="file" name="thumbnailOne" class="thumbnailOne" id="thumbnailOne" />
+        
+        <label>Thumbnail #2 (300px by 118px)</label>
+        <input type="hidden" name="MAX_FILE_SIZE" value="400" />
+        <input type="file" name="thumbnailTwo" class="thumbnailTwo" id="thumbnailTwo" />
+    </fieldset>
+    
+    
+    <fieldset>
+        <legend>Fullscreen Images: (1280px by 800px)</legend>
+        
+        <label>FullScreen #1</label>
+        <input type="hidden" name="MAX_FILE_SIZE" value="400" />
+        <input type="file" name="thumbnailOne" class="thumbnailOne" id="thumbnailOne" />
+        
+        <label>FullScreen #2</label>
+        <input type="hidden" name="MAX_FILE_SIZE" value="400" />
+        <input type="file" name="thumbnailTwo" class="thumbnailTwo" id="thumbnailTwo" />
+    </fieldset>
+
+    <input type="submit" name="submitImageForm" value="submit" id="submitImageForm" class="submitImageForm" />
+</form>
+
+<h1>This is the main page</h1>
+<form action="/project/addone" method="post" name="userGeneralSubmit" id="userGeneralSubmit" class="userGeneralSubmit">
+        <fieldset>
+            <legend>Project details:</legend>
+            <label>Project Title</label>
+            <input type="text" name="projectTitle" id="projectTitle" class="projectTitle" />
+            
+            <label>Project URL</label>
+            <input type="text" name="projectUrl" id="projectUrl" class="projectUrl" />
+        </fieldset>
+        
+        <fieldset>
+            <legend>Project Authors:</legend>
+            <label>First Name</label>
+            <input type="text" name="authorFirstName" id="authorFirstName" class="authorFirstName" />
+            <label>Last Name</label>
+            <input type="text" name="authorLastName" id="authorLastName" class="authorLastName" />
+        </fieldset>
+        
+        <fieldset>
+            <legend>Class / Time:</legend>
+            <label>Class</label>
+            <input type="text" name="class" id="class" class="class" />
+            
+            <label>Date Completed</label>
+            <input type="text" name="dateComplete" id="dateComplete" class="dateComplete" />
+            
+        </fieldset>
+        
+        
+        <fieldset>
+        
+            <legend>Tools used:</legend>
+            
+                  
+            <input type="checkbox" name="photoshop" id="photoshop" class="check" value="photoshop" />
+            <label>Photoshop</label>
+            
+            
+            <input type="checkbox" name="illustrator" id="illustrator" class="check" value="illustrator" />
+            <label>Illustrator</label>
+            
+            
+            <input type="checkbox" name="flash" id="flash" class="check" value="flash" />
+            <label>Flash</label>
+            
+            
+            <input type="checkbox" name="flex" id="flex" class="check" value="flex" />
+            <label>Flex</label>
+            
+            
+            <input type="checkbox" name="air" id="air" class="check" value="air" />
+            <label>Air</label>
+       </fieldset>
+
+       <fieldset>
+
+               <legend>Languages:</legend>
+       
+               <input type="checkbox" name="html" id="html" class="check" value="html" />
+            <label>HTML</label>      
+            
+            <input type="checkbox" name="css" id="css" class="check" value="css" /> 
+            <label>CSS</label>
+           
+            <input type="checkbox" name="javascript" id="javascript" class="check" value="javascript" />
+            <label>Javascript</label>
+            
+            <input type="checkbox" name="jquery" id="jquery" class="check" value="jquery" />
+            <label>jQuery</label><br />
+            
+            <input type="checkbox" name="php" id="php" class="check" value="php" />
+            <label>PHP</label>
+            
+            <input type="checkbox" name="ror" id="ror" class="check" value="ror" />
+            <label>ROR</label>
+            
+            <input type="checkbox" name="as2" id="as2" class="check" value="as2"/>
+            <label>Actionscript 2.0</label><br />
+            
+            <input type="checkbox" name="as3" id="as3" class="check"  value="as3"/>
+            <label>Actionscript 3.0</label>
+            
+            <input type="checkbox" name="sql" id="sql" class="check" value="sql" />
+            <label>mySQL</label>
+            
+       </fieldset>
+   
+       <fieldset>
+        <label>Assignment Specifications:</label>
+           <textarea name="assigmentSpecs" id="assigmentSpecs" wrap="hard"></textarea>
+
+        
+        <label>Project Approach:</label>
+        <textarea name="projectApproach" id="projectApproach" wrap="hard"></textarea>
+        
+        <input type="submit" name="submitGeneralForm" value="submit" id="submitGeneralForm" class="submitGeneralForm" />
+   
+     </fieldset>
+</form>

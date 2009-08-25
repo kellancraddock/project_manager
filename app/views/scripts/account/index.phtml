@@ -1,0 +1,16 @@
+<?php if (!$this->loggedin) { ?>
+<form action="/account/login" method="post">
+	<fieldset>
+		<legend>Please Login</legend>
+			<label for="email">Email</label>
+			<input type="text" name="email" id="email" />
+			<label for="password">Password</label>
+			<input type="text" name="password" id="password" />
+			<button type="submit">Submit</button>
+	</fieldset>
+</form>
+<a href="/account/new">Create an account</a>
+<?php } else { ?>
+<p>You are logged in!</p>
+<a href="/account/logout">Logout</a>
+<?php } ?>
