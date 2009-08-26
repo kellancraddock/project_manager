@@ -19,8 +19,8 @@
 				);
 		
 			//Insert into table
-			$db->insert($this->table, $insertArgs);
-			return $db->lastInsertId();
+			return $db->insert($this->table, $insertArgs);
+			//return $db->lastInsertId();
 		}
 		
 		function login($arguments)
