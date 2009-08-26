@@ -22,8 +22,12 @@
 		{
 			//validate and confirm pass here
 			$arguments = array($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['password'], $_POST['security_question'], $_POST['security_answer']);
-			$this->user_model->addOne($arguments);
-			header("Location: /");
+			$succcess = $this->user_model->addOne($arguments);
+			if ($success) {
+				header("Location: /account");
+			} else {
+				header("Location: /account/new");
+			}
 		}
 		
 		public function loginAction()
