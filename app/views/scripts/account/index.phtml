@@ -1,16 +1,15 @@
-<?php if (!$this->loggedin) { ?>
-<form action="/account/login" method="post">
-	<fieldset>
-		<legend>Please Login</legend>
-			<label for="email">Email</label>
-			<input type="text" name="email" id="email" />
-			<label for="password">Password</label>
-			<input type="text" name="password" id="password" />
-			<button type="submit">Submit</button>
-	</fieldset>
-</form>
-<a href="/account/new">Create an account</a>
-<?php } else { ?>
-<p>You are logged in!</p>
+<p>Your Projects</p>
+<?php 
+	foreach($this->projects as $project) {
+		echo '<div class="project">';
+		echo '<p>Title: ' . $project['title'] . '</p>';
+		echo '<p>URL: ' . $project['url'] . '</p>';
+		echo '<p>Date Completed: ' . $project['date_completed'] . '</p>';
+		echo '<p>Specs: ' . $project['specs'] . '</p>';
+		echo '<p>Approach: ' . $project['approach'] . '</p>';
+		echo '<a href="/account/project/id/' . $project['id'] . '">Edit</a>';
+		echo '</div>';	
+	}
+?>
 <a href="/account/logout">Logout</a>
-<?php } ?>
+<a href="/account/addproject">Add a Project</a>
