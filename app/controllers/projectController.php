@@ -7,7 +7,7 @@
 	class ProjectController extends Zend_Controller_Action
 	{
 		public function init() {
-			//$this->session_alert = new Zend_Session_Namespace('');
+			$this->user_session = new Zend_Session_Namespace('user');
 			$this->project_model = new ProjectModel();
 			$this->tool_model = new ToolModel();
 			$this->language_model = new LanguageModel();
@@ -30,8 +30,9 @@
 			header("Location: /");	
 		}
 		
-		public function addoneAction() 
+		public function createAction() 
 		{
+			$user_id = $this->user_session->id;
 			$tools_helper = $this->_helper->Tools;
 			$tools = $tools_helper->getTools();
 			
@@ -42,7 +43,7 @@
 			
 			$authors = array($_POST['authorFirstName'], $_POST['authorLastName']);
 			
-			$project_id = $this->project_model->addOne($projects);
+			$project_id = $this->project_model->addOne($projects, $user_id);
 			
 			$this->author_model->addOne(array($project_id), $authors);
 			
@@ -54,7 +55,7 @@
 				$this->language_model->addOne(array($project_id), $language);
 			}
 			//Go back to index
-			header("Location: /");
+			header("Location: /account");
 			//Pass project id to view
 			//$this->view->project_id = $project_id;
 			
