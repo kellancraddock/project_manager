@@ -27,19 +27,20 @@
 			return $db->fetchAssoc($select);
 		}
 		
-		function addOne($arguments)
+		function addOne($arguments, $user_id)
 		{
 			//Connect to database
 			$db = $this->getDefaultAdapter();
 		
 			//Set arguments to Zend insert associative array
 			$insertArgs = array(
-				'title'        => $arguments[0],
-				'url'         => $arguments[1],
+				'user_id'		=> $user_id,
+				'title'        	=> $arguments[0],
+				'url'         	=> $arguments[1],
 				'class'         => $arguments[2],
-				'date_completed'         => $arguments[3],
+				'date_completed'=> $arguments[3],
 				'specs'         => $arguments[4],
-				'approach'         => $arguments[5],
+				'approach'      => $arguments[5],
 				);
 		
 			//Insert into table

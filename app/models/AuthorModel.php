@@ -19,5 +19,17 @@
 			$db->insert($this->table, $insertArgs);
 			return true;
 		}
+		
+		function getAll($project_id)
+		{
+			//Connect to database
+			$db = $this->getDefaultAdapter();
+			
+			//Set arguments to select statement
+			$select = "SELECT * FROM $this->table WHERE project_id = '{$project_id}'";
+		
+			//Select from table
+			return $db->fetchRow($select);
+		}
 	}
 ?>
