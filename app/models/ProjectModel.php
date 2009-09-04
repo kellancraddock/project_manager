@@ -48,18 +48,22 @@
 			return $db->lastInsertId();
 		}
 		
-		function updateOne($arguments)
+		function updateOne($projects, $user_id, $project_id)
 		{
 			//Connect to database
 			$db = $this->getDefaultAdapter();
 		
 			//Set arguments to Zend insert associative array
 			$insertArgs = array(
-				'first_name'        => $arguments[1],
-				'last_name'         => $arguments[2],
+				'title'        	=> $projects[0],
+				'url'         	=> $projects[1],
+				'class'         => $projects[2],
+				'date_completed' => $projects[3],
+				'specs'         => $projects[4],
+				'approach'      => $projects[5],
 				);
 				
-			$where[] = "id = '{$arguments[0]}'";
+			$where[] = "id = '{$project_id}' AND user_id = '{$user_id}'";
 			
 			//Update
 			return $db->update($this->table, $insertArgs, $where);
@@ -75,6 +79,18 @@
 		
 			//Delete from table
 			return $db->delete($this->table, $delete);
+		}
+		
+		function isOwner($user_id, $project_id)
+		{
+			//Connect to database
+			$db = $this->getDefaultAdapter();
+			
+			//Set arguments to select statement
+			$select = "SELECT * FROM $this->table WHERE id = '{$project_id}' AND user_id = '{$user_id}'";
+		
+			//Select from table
+			return $db->fetchRow($select);
 		}
 	}
 ?>

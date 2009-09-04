@@ -31,5 +31,23 @@
 			//Select from table
 			return $db->fetchRow($select);
 		}
+		
+		function updateOne($authors, $project_id)
+		{
+			//Connect to database
+			$db = $this->getDefaultAdapter();
+
+			//Set arguments to Zend insert associative array
+			$insertArgs = array(
+				'first_name'        => $authors[0],
+				'last_name'         => $authors[1],
+				);
+				
+			$where[] = "project_id = '{$project_id}'";
+			
+			//Update
+			return $db->update($this->table, $insertArgs, $where);
+		}
+
 	}
 ?>
