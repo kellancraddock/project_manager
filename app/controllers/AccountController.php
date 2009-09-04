@@ -2,6 +2,9 @@
 	require_once('../app/models/UserModel.php');
 	require_once('../app/models/AccountModel.php');
 	require_once('../app/models/AuthorModel.php');
+	require_once('../app/models/ProjectModel.php');
+	require_once('../app/models/ImageModel.php');
+	require_once('../app/models/ToolModel.php');
 	class AccountController extends Zend_Controller_Action
 	{
 		public function init()
@@ -10,6 +13,9 @@
 			$this->user_model = new UserModel();
 			$this->account_model = new AccountModel();
 			$this->author_model = new AuthorModel();
+			$this->project_model = new ProjectModel();
+			$this->image_model = new ImageModel();
+			$this->tool_model = new ToolModel();
 		}
 		
 		public function indexAction()
@@ -25,7 +31,14 @@
 		{
 			$project_id = $this->_request->getParam('id');
 			$this->project = $this->account_model->getOne($project_id, $this->user_session->id);
+			if (!$this->project) {
+				//Project does not exist or is not owned by user
+				header("Location: /account");
+			}
 			$this->project['author'] = $this->author_model->getAll($project_id);
+			$this->project['images'] = $this->image_model->getAll($project_id);
+			$this->project['tools'] = $this->tool_model->getAll($project_id);
+
 			$this->view->project = $this->project;
 		}
 		
@@ -40,6 +53,18 @@
 			
 		}
 		
+		
+		public function addimagesAction()
+		{
+			//Verify Ownership
+			$project_id = $this->_request->getParam('id');
+			$project_helper = $this->_helper->Projects;
+			if(!$project_helper->isOwner($this->user_session->id, $project_id, $this->project_model)) {
+				header("Location: /account");
+			} else {
+				$this->view->id = $project_id;
+			}
+		}
 		
 		public function createAction()
 		{
@@ -67,7 +92,6 @@
 				header("Location: /account");
 			} else {
 				//Destroy Session
-				Zend_Session::destroy($remove_cookie = true, $readonly = true);
 				header("Location: /account/logout");
 			}
 		}

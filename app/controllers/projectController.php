@@ -12,7 +12,6 @@
 			$this->tool_model = new ToolModel();
 			$this->language_model = new LanguageModel();
 			$this->author_model = new AuthorModel();
-			//$this->_helper->layout->setLayout('');
 		}
 		
 		public function indexAction()
@@ -47,7 +46,7 @@
 			
 			$this->author_model->addOne(array($project_id), $authors);
 			
-			foreach (array($tools) as $tool) {
+			foreach ($tools as $tool) {
 				$this->tool_model->addOne(array($project_id), $tool);
 			}
 			
@@ -61,15 +60,38 @@
 			
 		}
 		
-		public function photosAction() 
+		public function updateAction()
 		{
-			header("Location: /");	
+			$project_id = $this->_request->getParam('id');
+			
+			$projects = array($_POST['projectTitle'], $_POST['projectUrl'], $_POST['class'], $_POST['dateComplete'], $_POST['assigmentSpecs'], $_POST['projectApproach']);
+			
+			$tools_helper = $this->_helper->Tools;
+			$tools = $tools_helper->getTools();
+			
+			$authors = array($_POST['authorFirstName'], $_POST['authorLastName']);
+			
+			$this->project_model->updateOne($projects, $this->user_session->id, $project_id);
+			
+			$this->author_model->updateOne($authors, $project_id);
+
+			$this->tool_model->deleteAll($project_id);
+			
+			foreach ($tools as $tool) {
+				$this->tool_model->addOne(array($project_id), $tool);
+			}
+			/*
+			foreach (array($languages) as $language) {
+				$this->language_model->addOne(array($project_id), $language);
+			}
+*/
+			//Go back to index
+			header("Location: /account");
+			//Pass project id to view
+			//$this->view->project_id = $project_id;
 		}
 		
-		public function addphotosAction() 
-		{
-			header("Location: /");
-		}		
+						
 	}
 	
 ?>
