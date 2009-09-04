@@ -8,7 +8,7 @@
 	}
 ?>
 </div>
-<a href="/account/addimages/id/<?= $this->project['id'] ?>">Add Images</a>
+<a href="/account/addimages/id/<?= $this->project['id'] ?>">Edit Images</a>
 <form action="/project/update/id/<?= $this->project['id'] ?>" method="post" name="userGeneralSubmit" id="userGeneralSubmit" class="userGeneralSubmit">
         <fieldset>
             <legend>Project details:</legend>
@@ -61,40 +61,39 @@
             <input type="checkbox" name="air" id="air" class="check" value="air" <?= (isset($this->project['tools']['air'])) ? 'checked = checked' : ''?> />
             <label>Air</label>
        </fieldset>
-<!--
+
        <fieldset>
 
-               <legend>Languages:</legend>
+            <legend>Languages:</legend>
        
-               <input type="checkbox" name="html" id="html" class="check" value="html" />
+            <input type="checkbox" name="html" id="html" class="check" value="html" <?= (isset($this->project['language']['html'])) ? 'checked = checked' : ''?>/>
             <label>HTML</label>      
             
-            <input type="checkbox" name="css" id="css" class="check" value="css" /> 
+            <input type="checkbox" name="css" id="css" class="check" value="css" <?= (isset($this->project['language']['css'])) ? 'checked = checked' : ''?>/> 
             <label>CSS</label>
            
-            <input type="checkbox" name="javascript" id="javascript" class="check" value="javascript" />
+            <input type="checkbox" name="javascript" id="javascript" class="check" value="javascript" <?= (isset($this->project['language']['javascript'])) ? 'checked = checked' : ''?>/>
             <label>Javascript</label>
             
-            <input type="checkbox" name="jquery" id="jquery" class="check" value="jquery" />
+            <input type="checkbox" name="jquery" id="jquery" class="check" value="jquery" <?= (isset($this->project['language']['jquery'])) ? 'checked = checked' : ''?>/>
             <label>jQuery</label><br />
             
-            <input type="checkbox" name="php" id="php" class="check" value="php" />
+            <input type="checkbox" name="php" id="php" class="check" value="php" <?= (isset($this->project['language']['php'])) ? 'checked = checked' : ''?>/>
             <label>PHP</label>
             
-            <input type="checkbox" name="ror" id="ror" class="check" value="ror" />
+            <input type="checkbox" name="ror" id="ror" class="check" value="ror" <?= (isset($this->project['language']['ror'])) ? 'checked = checked' : ''?>/>
             <label>ROR</label>
             
-            <input type="checkbox" name="as2" id="as2" class="check" value="as2"/>
+            <input type="checkbox" name="as2" id="as2" class="check" value="as2"<?= (isset($this->project['language']['as2'])) ? 'checked = checked' : ''?>/>
             <label>Actionscript 2.0</label><br />
             
-            <input type="checkbox" name="as3" id="as3" class="check"  value="as3"/>
+            <input type="checkbox" name="as3" id="as3" class="check"  value="as3" <?= (isset($this->project['language']['as3'])) ? 'checked = checked' : ''?>/>
             <label>Actionscript 3.0</label>
             
-            <input type="checkbox" name="sql" id="sql" class="check" value="sql" />
+            <input type="checkbox" name="sql" id="sql" class="check" value="sql" <?= (isset($this->project['language']['sqsl'])) ? 'checked = checked' : ''?>/>
             <label>mySQL</label>
             
        </fieldset>
--->
    
        <fieldset>
         <label>Assignment Specifications:</label>
