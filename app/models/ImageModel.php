@@ -26,9 +26,29 @@
 			
 			//Set arguments to select statement
 			$select = "SELECT * FROM $this->table WHERE project_id = '{$project_id}'";
-			
+		
 			//Select from table
-			return $db->fetchAssoc($select);
+			$images_array = $db->fetchAll($select);
+			
+			//Build array
+			$return_array = array();
+			foreach ($images_array as $images) {
+				$return_array[$images['type']] = array('file_name' => $images['file_name'], 'id' => $images['id']);
+			}
+			
+			return $return_array;
+		}
+		
+		function deleteOne($image_id, $project_id)
+		{
+			//Connect to database
+			$db = $this->getDefaultAdapter();
+		
+			//Set arguments to select statement
+			$where = "id = '{$image_id}' AND project_id = '{$project_id}'";
+		
+			//Delete from table
+			return $db->delete($this->table, $where);
 		}
 	}
 ?>

@@ -1,6 +1,53 @@
-<form action="/image/upload/id/<?= $this->id ?>" method="post" enctype="multipart/form-data" name="userGeneralSubmit" id="userGeneralSubmit" class="userGeneralSubmit">
-    <input type="file" name="thumbnailOne" class="thumbnailOne" id="thumbnailOne" />
-    <input type="file" name="thumbnailTwo" class="thumbnailTwo" id="thumbnailTwo" />
+<h1>Edit Images</h1>
+<a href="/account/project/id/<?= $this->id ?>">Back to Project</a>
+<form action="/image/upload/id/<?= $this->id ?>" method="post" enctype="multipart/form-data" name="userGeneralSubmit" id="userGeneralSubmit" class="addimages">
+    <fieldset>
+        <legend>Thumbnail Images:</legend>
+        
+        <label>Thumbnail #1 (262px by 295px)</label>
+        <?= (isset($this->images['thumbnailOne'])) ? '<a href="/image/delete/id/' . $this->images['thumbnailOne']['id'] . '/project/' . $this->id . '">Delete</a>' : ''?>
+        <?= (isset($this->images['thumbnailOne'])) ? '<img src="/uploads/' . $this->images['thumbnailOne']['file_name'] . '" />' : ''?>	
+        <input type="file" name="thumbnailOne" class="thumbnailOne" id="thumbnailOne" <?= (isset($this->images['thumbnailOne'])) ? 'disabled = disabled' : ''?> />
+        
+        <label>Thumbnail #2 (300px by 118px)</label>
+        <?= (isset($this->images['thumbnailTwo'])) ? '<a href="/image/delete/id/' . $this->images['thumbnailTwo']['id'] . '/project/' . $this->id . '">Delete</a>' : ''?>
+        <?= (isset($this->images['thumbnailTwo'])) ? '<img src="/uploads/' . $this->images['thumbnailTwo']['file_name'] . '" />' : ''?>
+        <input type="file" name="thumbnailTwo" class="thumbnailTwo" id="thumbnailTwo" <?= (isset($this->images['thumbnailTwo'])) ? 'disabled = disabled' : ''?> />
+	</fieldset>
+
+    <fieldset>
+        <legend>Fullscreen Images: (1280px by 800px)</legend>
+        
+        <label>FullScreen #1</label>
+        <?= (isset($this->images['fullOne'])) ? '<a href="/image/delete/id/' . $this->images['fullOne']['id'] . '/project/' . $this->id . '">Delete</a>' : ''?>
+        <?= (isset($this->images['fullOne'])) ? '<img src="/uploads/' . $this->images['fullOne']['file_name'] . '" />' : ''?>
+        <input type="file" name="fullOne" class="fullOne" id="fullOne" <?= (isset($this->images['fullOne'])) ? 'disabled = disabled' : ''?>/>
+        
+        <label>FullScreen #2</label>
+        <?= (isset($this->images['fullTwo'])) ? '<a href="/image/delete/id/' . $this->images['fullTwo']['id'] . '/project/' . $this->id . '">Delete</a>' : ''?>
+        <?= (isset($this->images['fullTwo'])) ? '<img src="/uploads/' . $this->images['fullTwo']['file_name'] . '" />' : ''?>
+        <input type="file" name="fullTwo" class="fullTwo" id="fullTwo" <?= (isset($this->images['fullTwo'])) ? 'disabled = disabled' : ''?>/>
+        
+        <label>FullScreen #3</label>
+        <?= (isset($this->images['fullThree'])) ? '<a href="/image/delete/id/' . $this->images['fullThree']['id'] . '/project/' . $this->id . '">Delete</a>' : ''?>
+        <?= (isset($this->images['fullThree'])) ? '<img src="/uploads/' . $this->images['fullThree']['file_name'] . '" />' : ''?>
+        <input type="file" name="fullThree" class="fullThree" id="fullThree" <?= (isset($this->images['fullThree'])) ? 'disabled = disabled' : ''?>/>
+        
+        <label>FullScreen #4</label>
+        <?= (isset($this->images['fullFour'])) ? '<a href="/image/delete/id/' . $this->images['fullFour']['id'] . '/project/' . $this->id . '">Delete</a>' : ''?>
+        <?= (isset($this->images['fullFour'])) ? '<img src="/uploads/' . $this->images['fullFour']['file_name'] . '" />' : ''?>
+        <input type="file" name="fullFour" class="fullFour" id="fullFour" <?= (isset($this->images['fullFour'])) ? 'disabled = disabled' : ''?>/>
+        
+        <label>FullScreen #5</label>
+        <?= (isset($this->images['fullFive'])) ? '<a href="/image/delete/id/' . $this->images['fullFive']['id'] . '/project/' . $this->id . '">Delete</a>' : ''?>
+        <?= (isset($this->images['fullFive'])) ? '<img src="/uploads/' . $this->images['fullFive']['file_name'] . '" />' : ''?>
+        <input type="file" name="fullFive" class="fullFive" id="fullFive" <?= (isset($this->images['fullFive'])) ? 'disabled = disabled' : ''?>/>
+        
+        <label>FullScreen #6</label>
+        <?= (isset($this->images['fullSix'])) ? '<a href="/image/delete/id/' . $this->images['fullSix']['id'] . '/project/' . $this->id . '">Delete</a>' : ''?>
+        <?= (isset($this->images['fullSix'])) ? '<img src="/uploads/' . $this->images['fullSix']['file_name'] . '" />' : ''?>
+        <input type="file" name="fullSix" class="fullSix" id="fullSix" <?= (isset($this->images['fullSix'])) ? 'disabled = disabled' : ''?>/>
+	</fieldset>
     <!--
 <fieldset>
         <legend>Thumbnail Images:</legend>
@@ -12,7 +59,7 @@
         <label>Thumbnail #2 (300px by 118px)</label>
         <input type="hidden" name="MAX_FILE_SIZE" value="400" />
         <input type="file" name="thumbnailTwo" class="thumbnailTwo" id="thumbnailTwo" />
-    </fieldset>
+</fieldset>
     
     
     <fieldset>
@@ -25,7 +72,7 @@
         <label>FullScreen #2</label>
         <input type="hidden" name="MAX_FILE_SIZE" value="400" />
         <input type="file" name="thumbnailTwo" class="thumbnailTwo" id="thumbnailTwo" />
-    </fieldset>
+</fieldset>
 -->
 
     <input type="submit" name="submitImageForm" value="submit" id="submitImageForm" class="submitImageForm" />

@@ -48,6 +48,22 @@
             	header("Location: /account");
             }
 		}
+		
+		public function deleteAction()
+		{
+			$image_id = $this->_request->getParam('id');
+			$project_id = $this->_request->getParam('project');
+			
+			//Varify Project Ownership
+			$project_helper = $this->_helper->Projects;
+			if($project_helper->isOwner($this->user_session->id, $project_id, $this->project_model)) {
+				$this->image_model->deleteOne($image_id, $project_id);
+			}
+			
+			header("Location: /account/addimages/id/{$project_id}");
+			
+		}
+		
 	}
 	
 ?>
