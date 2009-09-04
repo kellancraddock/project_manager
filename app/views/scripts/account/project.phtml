@@ -1,7 +1,15 @@
 <p>A Project</p>
 <a href="/account">Cancel</a>
-<h1>Edit <?= $this->project['title'] ?></h1>
-<form action="/project/update" method="post" name="userGeneralSubmit" id="userGeneralSubmit" class="userGeneralSubmit">
+<h1>Edit "<?= $this->project['title'] ?>"</h1>
+<div class="project_images">
+<?php
+	foreach($this->project['images'] as $image) {
+		echo "<img src=\"/uploads/{$image['file_name']}\" />";
+	}
+?>
+</div>
+<a href="/account/addimages/id/<?= $this->project['id'] ?>">Add Images</a>
+<form action="/project/update/id/<?= $this->project['id'] ?>" method="post" name="userGeneralSubmit" id="userGeneralSubmit" class="userGeneralSubmit">
         <fieldset>
             <legend>Project details:</legend>
             <label>Project Title</label>
@@ -28,34 +36,32 @@
             <input type="text" name="dateComplete" id="dateComplete" class="dateComplete" value="<?= $this->project['date_completed'] ?>"/>
             
         </fieldset>
-        
-        
-        <!--
-<fieldset>
+     
+		<fieldset>
         
             <legend>Tools used:</legend>
             
                   
-            <input type="checkbox" name="photoshop" id="photoshop" class="check" value="photoshop" />
+            <input type="checkbox" name="photoshop" id="photoshop" class="check" value="photoshop" <?= (isset($this->project['tools']['photoshop'])) ? 'checked = checked' : ''?>/>
             <label>Photoshop</label>
             
             
-            <input type="checkbox" name="illustrator" id="illustrator" class="check" value="illustrator" />
+            <input type="checkbox" name="illustrator" id="illustrator" class="check" value="illustrator" <?= (isset($this->project['tools']['illustrator'])) ? 'checked = checked' : ''?> />
             <label>Illustrator</label>
             
             
-            <input type="checkbox" name="flash" id="flash" class="check" value="flash" />
+            <input type="checkbox" name="flash" id="flash" class="check" value="flash" <?= (isset($this->project['tools']['flash'])) ? 'checked = checked' : ''?> />
             <label>Flash</label>
             
             
-            <input type="checkbox" name="flex" id="flex" class="check" value="flex" />
+            <input type="checkbox" name="flex" id="flex" class="check" value="flex" <?= (isset($this->project['tools']['flex'])) ? 'checked = checked' : ''?> />
             <label>Flex</label>
             
             
-            <input type="checkbox" name="air" id="air" class="check" value="air" />
+            <input type="checkbox" name="air" id="air" class="check" value="air" <?= (isset($this->project['tools']['air'])) ? 'checked = checked' : ''?> />
             <label>Air</label>
        </fieldset>
-
+<!--
        <fieldset>
 
                <legend>Languages:</legend>
