@@ -5,6 +5,7 @@
 	require_once('../app/models/ProjectModel.php');
 	require_once('../app/models/ImageModel.php');
 	require_once('../app/models/ToolModel.php');
+	require_once('../app/models/LanguageModel.php');
 	class AccountController extends Zend_Controller_Action
 	{
 		public function init()
@@ -16,6 +17,7 @@
 			$this->project_model = new ProjectModel();
 			$this->image_model = new ImageModel();
 			$this->tool_model = new ToolModel();
+			$this->language_model = new LanguageModel();
 		}
 		
 		public function indexAction()
@@ -38,6 +40,7 @@
 			$this->project['author'] = $this->author_model->getAll($project_id);
 			$this->project['images'] = $this->image_model->getAll($project_id);
 			$this->project['tools'] = $this->tool_model->getAll($project_id);
+			$this->project['language'] = $this->language_model->getAll($project_id);
 
 			$this->view->project = $this->project;
 		}
@@ -63,6 +66,7 @@
 				header("Location: /account");
 			} else {
 				$this->view->id = $project_id;
+				$this->view->images = $this->image_model->getAll($project_id);
 			}
 		}
 		
