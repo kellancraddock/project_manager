@@ -67,6 +67,6 @@ $front = Zend_Controller_Front::getInstance();
 
 //Set Controllers
 $front->setControllerDirectory('../app/controllers');
-$front->throwExceptions(true);
+$front->throwExceptions(false);
 $front->dispatch();
 ?>
