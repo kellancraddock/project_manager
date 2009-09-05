@@ -92,8 +92,15 @@
 					$this->user_session->id = $user['id'];
 					$this->user_session->first_name = $user['first_name'];
 					$this->user_session->last_name = $user['last_name'];
+					$this->user_session->is_admin = $user['admin'];
 				}
-				header("Location: /account");
+				
+				if ($this->user_session->is_admin) {
+					header("Location: /admin");
+				} else {
+					header("Location: /account");
+				}
+
 			} else {
 				//Destroy Session
 				header("Location: /account/logout");
