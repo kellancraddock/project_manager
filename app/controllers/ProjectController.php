@@ -14,21 +14,6 @@
 			$this->author_model = new AuthorModel();
 		}
 		
-		public function indexAction()
-		{
-			header("Location: /");
-		}
-		
-		public function getoneAction() 
-		{
-			header("Location: /");
-		}
-		
-		public function getallAction() 
-		{
-			header("Location: /");	
-		}
-		
 		public function createAction() 
 		{
 			$user_id = $this->user_session->id;
@@ -89,10 +74,7 @@
 				$this->language_model->addOne(array($project_id), $language);
 			}
 
-			//Go back to index
 			header("Location: /account");
-			//Pass project id to view
-			//$this->view->project_id = $project_id;
 		}
 		
 						
