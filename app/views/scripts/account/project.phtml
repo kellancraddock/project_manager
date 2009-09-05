@@ -1,5 +1,17 @@
-<p>A Project</p>
-<a href="/account">Cancel</a>
+<a href="/account">Back</a>
+<a href="/index/project/id/<?= $this->project['id'] ?>">View Public Version</a>
+<h3>Comments</h3>
+<?php
+	foreach ($this->project['comments'] as $key => $comment) {
+		echo "<div class=\"comment\">";
+		echo "<em>{$comment['first_name']} Says:</em>";
+		echo "<p>{$comment['comment']}</p>";
+		if ($comment['user_id'] == $this->user_id) {
+			echo "<a href=\"/comment/delete/id/{$key}\">Delete</a>";
+		}
+		echo "</div>";
+	}
+?>
 <h1>Edit "<?= $this->project['title'] ?>"</h1>
 <div class="project_images">
 <?php
