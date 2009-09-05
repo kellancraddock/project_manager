@@ -169,3 +169,11 @@ input[type="submit"] {
 form.addimages img {
 	width: 50px;
 }
+.comment em {
+	font-weight: bold;
+}
+.comment {
+	background: #c2c2c2;
+	padding: 5px;
+	margin-bottom: 5px;
+}
