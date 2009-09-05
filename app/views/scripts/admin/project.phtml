@@ -1,0 +1,68 @@
+<h1>Project <em>"<?= $this->project['title'] ?>"</em></h1>
+<h3>Images</h3>
+<div class="project_images">
+<?php
+	if ($this->project['images']) {
+		foreach($this->project['images'] as $image) {
+			echo "<img src=\"/uploads/{$image['file_name']}\" />";
+		}
+	} else {
+		echo "<em>No Images</em>";
+	}
+?>
+</div>
+<h3>Project Details</h3>
+<ul>
+	<li><span>Title: </span><?= $this->project['title'] ?></li>
+	<li><span>URL: </span><?= $this->project['url'] ?></li>
+</ul>
+
+<h3>Project Author</h3>
+<ul>
+	<li><span>First Name: </span><?= $this->project['author']['first_name'] ?></li>
+	<li><span>Last Name: </span><?= $this->project['author']['last_name'] ?></li>
+</ul>
+<h3>Class/Time</h3>
+<ul>
+	<li><span>Class: </span><?= $this->project['class'] ?></li>
+	<li><span>Date Completed: </span><?= $this->project['date_completed'] ?></li>
+</ul>
+<h3>Tools Used</h3>
+<ul class="normal">
+<?php
+	foreach ($this->project['tools'] as $tool) {
+		echo "<li>{$tool}</li>";
+	}
+?>
+</ul>
+<h3>Languages</h3>
+<ul class="normal">
+<?php
+	foreach ($this->project['language'] as $language) {
+		echo "<li>{$language}</li>";
+	}
+?>
+</ul>
+<h3>Assignment Specifications</h3>
+<p><?= $this->project['specs'] ?></p>
+<h3>Project Approach</h3>
+<p><?= $this->project['approach'] ?></p>
+<h3>Comments</h3>
+<?php
+	foreach ($this->project['comments'] as $key => $comment) {
+		echo "<div class=\"comment\">";
+		echo "<em>{$comment['first_name']} Says:</em>";
+		echo "<p>{$comment['comment']}</p>";
+		if ($comment['user_id'] == $this->user_id) {
+			echo "<a href=\"/comment/delete/id/{$key}\">Delete</a>";
+		}
+		echo "</div>";
+	}
+?>
+<form action="/comment/new/project/<?= $this->project['id'] ?>/user/<?= $this->user_id ?>" method="post" name="userGeneralSubmit" id="userGeneralSubmit" class="userGeneralSubmit">
+	 <fieldset>
+            <legend>Add a comment:</legend>
+            <textarea rows="6" id="comment_box" name="comment_box"></textarea>
+            <input type="submit" value="submit" />
+     </fieldset>
+</form>

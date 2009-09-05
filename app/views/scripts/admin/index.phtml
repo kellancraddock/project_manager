@@ -1,14 +1,13 @@
-<form method="post" name="userGeneralSubmit" id="userGeneralSubmit" class="userGeneralSubmit">
-        <fieldset>
-            <legend>Admin Login</legend>
-            
-            <label>Username</label>
-            <input type="text" name="adminUser" id="adminUser" class="adminUser" />
-            
-            <label>Password</label>
-            <input type="text" name="adminPassword" id="adminPassword" class="adminPassword" />
-            
-            <input type="submit" name="loginAdmin" value="login" id="loginAdmin" class="loginAdmin" />
-           
-        </fieldset>
-</form>
+<h1>This is the admin</h1>
+<?php 
+	foreach($this->projects as $project) {
+		echo '<div class="project">';
+		echo '<p>Title: ' . $project['title'] . '</p>';
+		echo '<p>URL: ' . $project['url'] . '</p>';
+		echo '<p>Date Completed: ' . $project['date_completed'] . '</p>';
+		echo '<p>Specs: ' . $project['specs'] . '</p>';
+		echo '<p>Approach: ' . $project['approach'] . '</p>';
+		echo '<a href="/admin/project/id/' . $project['id'] . '">View Project</a>';
+		echo '</div>';	
+	}
+?>
