@@ -3,16 +3,16 @@
 	{
 		private $table = "projects";
 		
-		function getOne($arguments)
+		function getOne($project_id)
 		{
 			//Connect to database
 			$db = $this->getDefaultAdapter();
 			
 			//Set arguments to select statement
-			$select = "SELECT * FROM $this->table WHERE id = '{$arguments[0]}'";
+			$select = "SELECT * FROM $this->table WHERE id = '{$project_id}'";
 		
 			//Select from table
-			return $db->fetchAssoc($select);
+			return $db->fetchRow($select);
 		}
 
 		function getAll()
