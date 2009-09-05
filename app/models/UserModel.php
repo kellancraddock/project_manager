@@ -23,6 +23,19 @@
 			//return $db->lastInsertId();
 		}
 		
+		function getOne($user_id)
+		{
+			//Connect to database
+			$db = $this->getDefaultAdapter();
+			
+			//Set arguments to select statement
+			$select = "SELECT first_name FROM $this->table WHERE id = {$user_id}";
+		
+			//Select from table
+			return $db->fetchOne($select);
+			
+		}
+		
 		function login($arguments)
 		{
 			//Connect to database
