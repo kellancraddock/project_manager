@@ -35,7 +35,7 @@
 			foreach ($images_array as $images) {
 				$return_array[$images['type']] = array('file_name' => $images['file_name'], 'id' => $images['id']);
 			}
-			
+
 			return $return_array;
 		}
 		
