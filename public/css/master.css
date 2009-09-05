@@ -59,6 +59,19 @@ body {
         
 }
 
+#container ul {
+	list-style: none;
+	list-style-position: outside;
+}
+
+#container ul span {
+	font-weight: bold;
+}
+
+#container ul.normal {
+	list-style: disc;
+}
+
 #userGeneralSubmit {
     width: 330px;
     margin: 0px 0px 0px 0px;
