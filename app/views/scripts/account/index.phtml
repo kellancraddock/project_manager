@@ -1,15 +1,15 @@
 <p>Your Projects</p>
 <?php 
 	foreach($this->projects as $project) {
-		echo '<div class="project">';
+		echo '<div class="project clearfix">';
 		echo '<p>Title: ' . $project['title'] . '</p>';
 		echo '<p>URL: ' . $project['url'] . '</p>';
 		echo '<p>Date Completed: ' . $project['date_completed'] . '</p>';
 		echo '<p>Specs: ' . $project['specs'] . '</p>';
 		echo '<p>Approach: ' . $project['approach'] . '</p>';
-		echo '<a href="/account/project/id/' . $project['id'] . '">Edit</a>';
+		echo '<a class="button" href="/account/project/id/' . $project['id'] . '">Edit</a>';
 		echo '</div>';	
 	}
 ?>
-<a href="/account/logout">Logout</a>
-<a href="/account/addproject">Add a Project</a>
+<a class="button" href="/account/logout">Logout</a>
+<a class="button" href="/account/addproject">Add a Project</a>

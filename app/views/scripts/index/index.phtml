@@ -1,13 +1,16 @@
-<p>This is the Public view <?= ($this->user_id) ? '<a href="/account">My Account</a>' : '<a href="/login">Login</a>' ?></p> 
+<div class="clearfix">
+<p>This is the Public view</p>
+<?= ($this->user_id) ? '<a class="button" href="/account">My Account</a>' : '<a class="button" href="/login">Login</a>' ?>
+</div>
 <?php 
 	foreach($this->projects as $project) {
-		echo '<div class="project">';
+		echo '<div class="project clearfix">';
 		echo '<p>Title: ' . $project['title'] . '</p>';
 		echo '<p>URL: ' . $project['url'] . '</p>';
 		echo '<p>Date Completed: ' . $project['date_completed'] . '</p>';
 		echo '<p>Specs: ' . $project['specs'] . '</p>';
 		echo '<p>Approach: ' . $project['approach'] . '</p>';
-		echo '<a href="/index/project/id/' . $project['id'] . '">View Project</a>';
+		echo '<a class="button" href="/index/project/id/' . $project['id'] . '">View Project</a>';
 		echo '</div>';	
 	}
 ?>

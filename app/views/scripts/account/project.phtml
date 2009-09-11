@@ -1,5 +1,7 @@
-<a href="/account">Back</a>
-<a href="/index/project/id/<?= $this->project['id'] ?>">View Public Version</a>
+<div class="clearfix">
+<a class="button" href="/account">Back</a>
+<a class="button" href="/index/project/id/<?= $this->project['id'] ?>">View Public Version</a>
+</div>
 <h3>Comments</h3>
 <?php
 	foreach ($this->project['comments'] as $key => $comment) {
@@ -20,7 +22,7 @@
 	}
 ?>
 </div>
-<a href="/account/addimages/id/<?= $this->project['id'] ?>">Edit Images</a>
+<a class="button" href="/account/addimages/id/<?= $this->project['id'] ?>">Edit Images</a>
 <form action="/project/update/id/<?= $this->project['id'] ?>" method="post" name="userGeneralSubmit" id="userGeneralSubmit" class="userGeneralSubmit">
         <fieldset>
             <legend>Project details:</legend>
@@ -115,7 +117,7 @@
         <label>Project Approach:</label>
         <textarea name="projectApproach" id="projectApproach" wrap="hard"><?= $this->project['approach'] ?></textarea>
         
-        <input type="submit" name="submitGeneralForm" value="update" id="submitGeneralForm" class="submitGeneralForm" />
+        <input class="button" type="submit" name="submitGeneralForm" value="update" id="submitGeneralForm" class="submitGeneralForm" />
    
      </fieldset>
 </form>

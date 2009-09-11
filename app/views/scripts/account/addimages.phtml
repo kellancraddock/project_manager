@@ -1,5 +1,5 @@
 <h1>Edit Images</h1>
-<a href="/account/project/id/<?= $this->id ?>">Back to Project</a>
+<a class="button" href="/account/project/id/<?= $this->id ?>">Back to Project</a>
 <form action="/image/upload/id/<?= $this->id ?>" method="post" enctype="multipart/form-data" name="userGeneralSubmit" id="userGeneralSubmit" class="addimages">
     <fieldset>
         <legend>Thumbnail Images:</legend>
@@ -48,32 +48,6 @@
         <?= (isset($this->images['fullSix'])) ? '<img src="/uploads/' . $this->images['fullSix']['file_name'] . '" />' : ''?>
         <input type="file" name="fullSix" class="fullSix" id="fullSix" <?= (isset($this->images['fullSix'])) ? 'disabled = disabled' : ''?>/>
 	</fieldset>
-    <!--
-<fieldset>
-        <legend>Thumbnail Images:</legend>
-        
-        <label>Thumbnail #1 (262px by 295px)</label>
-        <input type="hidden" name="MAX_FILE_SIZE" value="400" />
-        <input type="file" name="thumbnailOne" class="thumbnailOne" id="thumbnailOne" />
-        
-        <label>Thumbnail #2 (300px by 118px)</label>
-        <input type="hidden" name="MAX_FILE_SIZE" value="400" />
-        <input type="file" name="thumbnailTwo" class="thumbnailTwo" id="thumbnailTwo" />
-</fieldset>
-    
-    
-    <fieldset>
-        <legend>Fullscreen Images: (1280px by 800px)</legend>
-        
-        <label>FullScreen #1</label>
-        <input type="hidden" name="MAX_FILE_SIZE" value="400" />
-        <input type="file" name="thumbnailOne" class="thumbnailOne" id="thumbnailOne" />
-        
-        <label>FullScreen #2</label>
-        <input type="hidden" name="MAX_FILE_SIZE" value="400" />
-        <input type="file" name="thumbnailTwo" class="thumbnailTwo" id="thumbnailTwo" />
-</fieldset>
--->
 
     <input type="submit" name="submitImageForm" value="submit" id="submitImageForm" class="submitImageForm" />
 </form>
