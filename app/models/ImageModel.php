@@ -39,6 +39,18 @@
 			return $return_array;
 		}
 		
+		function getOne($image_id)
+		{
+			//Connect to database
+			$db = $this->getDefaultAdapter();
+			
+			//Set arguments to select statement
+			$select = "SELECT file_name FROM $this->table WHERE id = '{$image_id}'";
+		
+			//Select from table
+			return $db->fetchOne($select);
+		}
+		
 		function deleteOne($image_id, $project_id)
 		{
 			//Connect to database
