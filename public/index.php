@@ -8,6 +8,9 @@ ini_set('display_errors', 'on');
 //Modify include path to library
 ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . '../library');
 
+//Define upload directory
+define('UPLOAD_PATH', '/Applications/MAMP/htdocs/repositories/project_manager/public/uploads/');
+
 //Zend Framework Includes
 require_once "Zend/Loader.php";
 
