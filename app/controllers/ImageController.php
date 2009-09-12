@@ -29,7 +29,7 @@
 						//Should probably use the array method below to enable overwriting
 						$new_name = md5(rand()) .'-' . $project_id . '.' . $ext;
 						//Add rename filter
-						$adapter->addFilter('Rename', '/Applications/MAMP/htdocs/repositories/project_manager/public/uploads/' . $new_name);
+						$adapter->addFilter('Rename', UPLOAD_PATH . $new_name);
 					} catch(Zend_File_Transfer_Exception $e) {
 						die($e->getMessage());
 					}
@@ -54,10 +54,13 @@
 			$image_id = $this->_request->getParam('id');
 			$project_id = $this->_request->getParam('project');
 			
+			$file_name = $this->image_model->getOne($image_id);
+			
 			//Varify Project Ownership
 			$project_helper = $this->_helper->Projects;
 			if($project_helper->isOwner($this->user_session->id, $project_id, $this->project_model)) {
 				$this->image_model->deleteOne($image_id, $project_id);
+				unlink(UPLOAD_PATH . $file_name);
 			}
 			
 			header("Location: /account/addimages/id/{$project_id}");
